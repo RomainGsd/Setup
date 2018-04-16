@@ -1,0 +1,4 @@
+#!/bin/bash
+
+find .  -name "#*#" -type f -delete -o -name "*~" -type f -delete -o -name "a.out" -delete -o -name "*.gch" -type f -delete -o -name "*.o" -type f -delete
+tput clear

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+git add --all
+printf "\nAll added\n\n"
+printf "======================================\n\n"
+git commit -am "Files commited"
+printf "\n=====================================\n\n"
+git push origin master
+printf "\n"
