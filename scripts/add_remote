@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ -z "$1" ]
+then
+    git remote add github $1
+    git pull github master --allow-unrelated-histories
+else
+    echo "Arguments missing"
+fi
