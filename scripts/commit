@@ -1,0 +1,5 @@
+#!/bin/bash
+
+source clean
+git add *
+git commit -a -m "$1"
