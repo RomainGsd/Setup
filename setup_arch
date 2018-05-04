@@ -1,0 +1,47 @@
+#!/bin/bash
+
+#This script does all the setup work
+
+login=$1
+
+function usage
+{
+    echo
+    echo "Usage: $0 <prenom.nom@epitech.eu>"
+    echo
+}
+
+function add_scripts
+{
+    #Put shell scripts in .script directory
+    printf "Copy some scripts ...\n\n"
+    mkdir ~/.scripts
+    cp ./scripts/* ~/.scripts/
+}
+
+function aliases_and_export_env
+{
+    #Add aliases and export to .bashrc
+    printf "Add some aliases and export env ...\n\n"
+    declare -a aliases
+    readarray aliases < "./bashrc/aliases"
+    printf "%s" "${aliases[@]}" >> ~/.bashrc
+    declare -a export
+    readarray export < "./bashrc/export"
+    printf "%s" "${export[@]}" >> ~/.bashrc
+}
+
+function epitech
+{
+    #Call epitech script
+    ./installation_epitech/installation/install $1
+}
+
+if test -z "$login"; then
+    usage
+    exit 1
+fi
+
+add_scripts
+aliases_and_export_env
+epitech "$login"
