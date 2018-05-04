@@ -47,7 +47,7 @@ if test -z "$login"; then
     exit 1
 fi
 
-#add_scripts
-#aliases_and_export_env
-#epitech "$login"
+add_scripts
+aliases_and_export_env
+epitech "$login"
 install
