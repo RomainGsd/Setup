@@ -37,11 +37,17 @@ function epitech
     ./installation_epitech/installation/install $1
 }
 
+function install
+{
+    sudo pacman -Syu terminator
+}
+
 if test -z "$login"; then
     usage
     exit 1
 fi
 
-add_scripts
-aliases_and_export_env
-epitech "$login"
+#add_scripts
+#aliases_and_export_env
+#epitech "$login"
+install
