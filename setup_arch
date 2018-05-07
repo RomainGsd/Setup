@@ -35,6 +35,8 @@ function epitech
 {
     #Call epitech script
     ./installation_epitech/installation/install $1
+    sudo pacman -Syu wget
+    ./installation_epitech/install_criterion.sh
 }
 
 function install
