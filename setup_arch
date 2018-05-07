@@ -39,7 +39,11 @@ function epitech
 
 function install
 {
-    sudo pacman -Syu terminator
+    read -p "> Do you want to install terminator ? (y/n) " choice
+    if [ "$choice" == "y" ] ; then
+	sudo pacman -Syu terminator
+    fi
+    printf "Setup ok, enjoy\n"
 }
 
 if test -z "$login"; then
