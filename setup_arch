@@ -43,7 +43,13 @@ function install
 {
     read -p "> Do you want to install terminator ? (y/n) " choice
     if [ "$choice" == "y" ] ; then
+	printf "Installing Terminator ...\n"
 	sudo pacman -Syu terminator
+    fi
+    read -p "> Do you want to install atom ? (y/n) " choice2
+    if [ "$choice2" == "y" ] ; then
+	printf "Installing Atom ...\n"
+	sudo pacman -Syu atom
     fi
     printf "Setup ok, enjoy\n"
 }
