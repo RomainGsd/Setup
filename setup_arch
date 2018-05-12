@@ -49,8 +49,12 @@ function install
     read -p "> Do you want to install atom ? (y/n) " choice2
     if [ "$choice2" == "y" ] ; then
 	printf "Installing Atom ...\n"
-	sudo pacman -Syu atom
+	sudo pacman -S atom
     fi
+    read -p "> Do you want to install pepper-flash ? (y/n) " choice3
+    if [ "$choice3" == "y" ] ; then
+	printf "Installing Pepper-Flash ...\n"
+	sudo pacman -S pepper-flash
     printf "Setup ok, enjoy\n"
 }
 
