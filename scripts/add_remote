@@ -2,8 +2,8 @@
 
 if [ -z "$1" ]
 then
+    echo "Arguments missing"
+else
     git remote add github $1
     git pull github master --allow-unrelated-histories
-else
-    echo "Arguments missing"
 fi
