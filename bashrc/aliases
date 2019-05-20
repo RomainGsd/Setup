@@ -1,3 +1,5 @@
+alias ..='cd ..'
+alias py='python'
 alias ne='emacs -nw'
 alias l='ls -l'
 alias mkdir='mkdir -pv'
