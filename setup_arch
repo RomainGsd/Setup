@@ -46,6 +46,11 @@ function install
 	printf "Installing Terminator ...\n"
 	sudo pacman -Syu terminator
     fi
+    read -p "> Do you want to add U2F support ? (y/n) " choice
+    if [ "$choice" == "y" ] ; then
+	printf "Installing U2F ...\n"
+	sudo pacman -Syu pam-u2f
+    fi
     read -p "> Do you want to install atom ? (y/n) " choice2
     if [ "$choice2" == "y" ] ; then
 	printf "Installing Atom ...\n"
