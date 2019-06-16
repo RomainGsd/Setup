@@ -31,6 +31,15 @@ function aliases_and_export_env
     printf "%s" "${export[@]}" >> ~/.bashrc
 }
 
+function modify_shell_prompt
+{
+    #Thanks @Benit8 <3
+    printf "Modifying prompt look ...\n\n"
+    declare -a prompt
+    readarray prompt < "./bashrc/prompt"
+    printf "%s" "${prompt[@]}" >> ~/.bashrc
+}
+
 function epitech
 {
     #Call epitech script
@@ -69,6 +78,7 @@ if test -z "$login"; then
 fi
 
 add_scripts
+modify_shell_prompt
 aliases_and_export_env
 epitech "$login"
 install
