@@ -68,10 +68,10 @@ function install
 	printf "Installing U2F ...\n"
 	sudo pacman -S pam-u2f
     fi
-    read -p "> Do you want to install atom ? (y/n) " choice2
-    if [ "$choice2" == "y" ] ; then
-	printf "Installing Atom ...\n"
-	sudo pacman -S atom
+    read -p "> Do you want to install code ? (y/n) " choice
+    if [ "$choice" == "y" ] ; then
+	printf "Installing Code ...\n"
+	sudo pacman -S code
     fi
     read -p "> Do you want to install pepper-flash ? (y/n) " choice3
     if [ "$choice3" == "y" ] ; then
