@@ -1,0 +1,8 @@
+#!/bin/bash
+
+printf "Remove packages old versions with Paccache\n\n"
+sudo paccache -r
+printf "Remove pacman orphans\n\n"
+sudo pacman -Rns "$(pacman -Qtdq)"
+printf "Clean ArchLinux cache\n\n"
+rm -rf ~/.cache/

@@ -17,6 +17,8 @@ function add_scripts
     printf "Copy some scripts ...\n\n"
     mkdir ~/.scripts
     cp ./scripts/* ~/.scripts/
+    printf "Installing paccache ...\n\n"
+    sudo pacman -S pacman-contrib
 }
 
 function aliases_and_export_env
