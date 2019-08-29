@@ -1,3 +1,6 @@
+meteo(){
+	curl "http://v2.wttr.in/$1"
+}
 alias ..='cd ..'
 alias py='python'
 alias ne='emacs -nw'
