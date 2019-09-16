@@ -13,3 +13,4 @@ alias gcc_nazi99='gcc -Wall -Wextra -Werror -pedantic -std=gnu99'
 alias veille='systemctl suspend'
 alias clang='clang -fcolor-diagnostics'
 alias clangpp='clang++ -fcolor-diagnostics'
+alias vpn="sudo openvpn --config /etc/openvpn/client/sg-40.protonvpn.com.udp.ovpn --auth-user-pass /etc/openvpn/client/login.conf"
