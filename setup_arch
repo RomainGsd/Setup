@@ -73,10 +73,18 @@ function install
 	printf "Installing Code ...\n"
 	sudo pacman -S code
     fi
-    read -p "> Do you want to install pepper-flash ? (y/n) " choice3
-    if [ "$choice3" == "y" ] ; then
+    read -p "> Do you want to install pepper-flash ? (y/n) " choice
+    if [ "$choice" == "y" ] ; then
 	printf "Installing Pepper-Flash ...\n"
 	sudo pacman -S pepper-flash
+    fi
+     read -p "> Do you want to install protonvpn-cli ? (y/n)" choice
+     if [ "$choice" == "y" ] ; then
+	printf "Installing ProtonVPN CLI...n"
+	sudo pacman -S openvpn dialog python-pip python-setuptools
+	sudo pip3 install protonvpn-cli
+	sudo pip3 install protonvpn-cli --upgrade
+     fi
     printf "Setup ok, enjoy\n"
 }
 
