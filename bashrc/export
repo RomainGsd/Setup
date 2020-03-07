@@ -1,6 +1,8 @@
 PATH=$PATH:$HOME/.scripts
 LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+LANG=en
 
+export LANG
 export LD_LIBRARY_PATH
 export PATH
 export PS1
