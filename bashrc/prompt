@@ -1,3 +1,7 @@
+[[ $- != *i* ]] && return
+
+archey3
+
 __prompt_command() {
     local LEC="$?"
     local RCol='\[\e[0m\]'
