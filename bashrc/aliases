@@ -15,3 +15,4 @@ alias clang='clang -fcolor-diagnostics'
 alias clangpp='clang++ -fcolor-diagnostics'
 alias vpn="sudo protonvpn c --p2p"
 alias deco_vpn="sudo protonvpn d"
+

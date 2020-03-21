@@ -11,6 +11,20 @@ function usage
     echo
 }
 
+#Add en_US.UTF-8 locale
+function add_locale
+{
+    read -p "Did you edit /etc/locale.gen and uncommented en_US.UTF-8 ? (y/n)" choice
+    if [ "$choice" == "y" ] ; then
+	printf "Generating locales..."
+	locale-gen
+    else
+	printf "Exiting..."
+	exit 0
+    fi
+
+}
+
 function add_scripts
 {
     #Put shell scripts in .script directory
@@ -94,6 +108,7 @@ if test -z "$login"; then
 fi
 
 sudo pacman -Syu
+add_locale
 add_scripts
 modify_shell_prompt
 aliases_and_export_env
