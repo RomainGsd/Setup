@@ -1,0 +1,3 @@
+#/bin/bash
+
+curl -s https://www.archlinux.org/ | hq '.article-content:first-of-type' text ansi

@@ -6,105 +6,107 @@ login=$1
 
 function usage
 {
-    echo
-    echo "Usage: $0 <prenom.nom@epitech.eu>"
-    echo
+	echo
+	echo "Usage: $0 <prenom.nom@epitech.eu>"
+	echo
 }
 
 #Add en_US.UTF-8 locale
 function add_locale
 {
-    read -p "Did you edit /etc/locale.gen and uncommented en_US.UTF-8 ? (y/n)" choice
-    if [ "$choice" == "y" ] ; then
+	read -p "Did you edit /etc/locale.gen and uncommented en_US.UTF-8 ? (y/n)" choice
+	if [ "$choice" == "y" ] ; then
 	printf "Generating locales..."
 	locale-gen
-    else
+	else
 	printf "Exiting..."
 	exit 0
-    fi
+	fi
 
 }
 
 function add_scripts
 {
-    #Put shell scripts in .script directory
-    printf "Copy some scripts ...\n\n"
-    mkdir ~/.scripts
-    cp ./scripts/* ~/.scripts/
-    printf "Installing paccache ...\n\n"
-    sudo pacman -S pacman-contrib
+	#Put shell scripts in .script directory
+	printf "Copy some scripts ...\n\n"
+	mkdir ~/.scripts
+	cp ./scripts/* ~/.scripts/
+	printf "Installing paccache ...\n\n"
+	sudo pacman -S pacman-contrib
 }
 
 function aliases_and_export_env
 {
-    #Add aliases and export to .bashrc
-    printf "archey3" >> ~/.bashrc
-    printf "Add some aliases and export env ...\n\n"
-    declare -a aliases
-    readarray aliases < "./bashrc/aliases"
-    printf "%s" "${aliases[@]}" >> ~/.bashrc
-    declare -a export
-    readarray export < "./bashrc/export"
-    printf "%s" "${export[@]}" >> ~/.bashrc
+	#Add aliases and export to .bashrc
+	printf "archey3" >> ~/.bashrc
+	printf "Add some aliases and export env ...\n\n"
+	declare -a aliases
+	readarray aliases < "./bashrc/aliases"
+	printf "%s" "${aliases[@]}" >> ~/.bashrc
+	declare -a export
+	readarray export < "./bashrc/export"
+	printf "%s" "${export[@]}" >> ~/.bashrc
 }
 
 function modify_shell_prompt
 {
-    #Thanks @Benit8 <3
-    printf "Modifying prompt look ...\n\n"
-    declare -a prompt
-    readarray prompt < "./bashrc/prompt"
-    printf "%s" "${prompt[@]}" >> ~/.bashrc
+	#Thanks @Benit8 <3
+	printf "Modifying prompt look ...\n\n"
+	declare -a prompt
+	readarray prompt < "./bashrc/prompt"
+	printf "%s" "${prompt[@]}" >> ~/.bashrc
 }
 
 function epitech
 {
-    #Call epitech script
-    ./installation_epitech/installation/install $1
-    sudo pacman -Syu wget
-    ./installation_epitech/install_criterion.sh
+	#Call epitech script
+	./installation_epitech/installation/install $1
+	sudo pacman -Syu wget
+	./installation_epitech/install_criterion.sh
 }
 
 function install
 {
-    read -p "> Do you want to install archey ? (y/n)" choice
-    if [ "$choice" == "y" ] ; then
+	read -p "> Do you want to install archey ? (y/n)" choice
+	if [ "$choice" == "y" ] ; then
 	printf "Installing Archey ...\n"
 	sudo pacman -S archey3
-    fi
-    read -p "> Do you want to install terminator ? (y/n) " choice
-    if [ "$choice" == "y" ] ; then
+	fi
+	read -p "> Do you want to install terminator ? (y/n) " choice
+	if [ "$choice" == "y" ] ; then
 	printf "Installing Terminator ...\n"
 	sudo pacman -S terminator
-    fi
-    read -p "> Do you want to add U2F support ? (y/n) " choice
-    if [ "$choice" == "y" ] ; then
+	fi
+	read -p "> Do you want to add U2F support ? (y/n) " choice
+	if [ "$choice" == "y" ] ; then
 	printf "Installing U2F ...\n"
 	sudo pacman -S pam-u2f
-    fi
-    read -p "> Do you want to install code ? (y/n) " choice
-    if [ "$choice" == "y" ] ; then
+	fi
+	read -p "> Do you want to install code ? (y/n) " choice
+	if [ "$choice" == "y" ] ; then
 	printf "Installing Code ...\n"
 	sudo pacman -S code
-    fi
-    read -p "> Do you want to install pepper-flash ? (y/n) " choice
-    if [ "$choice" == "y" ] ; then
+	fi
+	read -p "> Do you want to install pepper-flash ? (y/n) " choice
+	if [ "$choice" == "y" ] ; then
 	printf "Installing Pepper-Flash ...\n"
 	sudo pacman -S pepper-flash
-    fi
-     read -p "> Do you want to install protonvpn-cli ? (y/n)" choice
-     if [ "$choice" == "y" ] ; then
+	fi
+	read -p "> Do you want to install protonvpn-cli ? (y/n)" choice
+	if [ "$choice" == "y" ] ; then
 	printf "Installing ProtonVPN CLI...n"
 	sudo pacman -S openvpn dialog python-pip python-setuptools
 	sudo pip3 install protonvpn-cli
 	sudo pip3 install protonvpn-cli --upgrade
-     fi
-    printf "Setup ok, enjoy\n"
+	fi
+	printf "Installing hq for pacnews script..."
+	sudo pacman -S hq
+	printf "Setup ok, enjoy\n"
 }
 
 if test -z "$login"; then
-    usage
-    exit 1
+	usage
+	exit 1
 fi
 
 sudo pacman -Syu

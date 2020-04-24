@@ -276,8 +276,8 @@ handle_error $?
 script_header "DESIREZ VOUS INSTALLER HTOP ?"
 read -p "Installer htop pour avoir un top plus pratique ? [O/n]" yn
 case $yn in
-    [Nn]* );;
-    * ) sys_install htop;;
+	[Nn]* );;
+	* ) sys_install htop;;
 esac
 
 script_header "VOTRE OS EST PRÊT POUR EPITECH" $C_BWHITE
