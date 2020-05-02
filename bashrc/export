@@ -1,14 +1,11 @@
 
 PATH=$PATH:$HOME/.scripts
 LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
-LANG=en
 EDITOR=emacs -nw
-LC_ALL="en_US.UTF-8"
+LANG=C
 
-export LC_ALL
 export LANG
 export LD_LIBRARY_PATH
 export PATH
 export PS1
 export EDITOR
-

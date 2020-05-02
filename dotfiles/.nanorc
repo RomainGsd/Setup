@@ -1,0 +1,7 @@
+include	/usr/share/nano/c.nanorc
+include	/usr/share/nano/cmake.nanorc
+include	/usr/share/nano/pov.nanorc
+include	/usr/share/nano/java.nanorc
+include	/usr/share/nano/python.nanorc
+
+

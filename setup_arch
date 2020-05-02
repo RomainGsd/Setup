@@ -25,9 +25,9 @@ function add_locale
 
 }
 
+#Put shell scripts in .script directory
 function add_scripts
 {
-	#Put shell scripts in .script directory
 	printf "Copy some scripts ...\n\n"
 	mkdir ~/.scripts
 	cp ./scripts/* ~/.scripts/
@@ -35,9 +35,9 @@ function add_scripts
 	sudo pacman -S pacman-contrib
 }
 
+#Add aliases and export to .bashrc
 function aliases_and_export_env
 {
-	#Add aliases and export to .bashrc
 	printf "archey3" >> ~/.bashrc
 	printf "Add some aliases and export env ...\n\n"
 	declare -a aliases
@@ -48,18 +48,18 @@ function aliases_and_export_env
 	printf "%s" "${export[@]}" >> ~/.bashrc
 }
 
+#Thanks @Benit8 <3
 function modify_shell_prompt
 {
-	#Thanks @Benit8 <3
 	printf "Modifying prompt look ...\n\n"
 	declare -a prompt
 	readarray prompt < "./bashrc/prompt"
 	printf "%s" "${prompt[@]}" >> ~/.bashrc
 }
 
+#Call epitech script
 function epitech
 {
-	#Call epitech script
 	./installation_epitech/installation/install $1
 	sudo pacman -Syu wget
 	./installation_epitech/install_criterion.sh
@@ -104,6 +104,12 @@ function install
 	printf "Setup ok, enjoy\n"
 }
 
+function cp_dotfiles()
+{
+	printf "Copying dotfiles into ~/"
+	cp -r ./dotfiles/* ~/
+}
+
 if test -z "$login"; then
 	usage
 	exit 1
@@ -114,5 +120,6 @@ add_locale
 add_scripts
 modify_shell_prompt
 aliases_and_export_env
+cp_dotfiles
 epitech "$login"
 install
