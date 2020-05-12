@@ -1,8 +1,25 @@
 #!/bin/bash
 
-printf "Remove packages old versions with Paccache\n\n"
+CACHE_DIR="/home/romain/.cache"
+
+printf "Removing packages old versions with Paccache\n"
 sudo paccache -r
-printf "Remove pacman orphans\n\n"
-sudo pacman -Rns "$(pacman -Qtdq)"
-printf "Clean ArchLinux cache\n\n"
-rm -rf ~/.cache/
+
+printf "\nRemoving pacman orphans\n"
+to_clean=$(pacman -Qtdq)
+if [ -z "$to_clean" ]; then
+    printf "Nothing to clean.\n\n"
+else
+    sudo pacman -Rns $to_clean
+    print "\n"
+fi
+
+if [ -d "$CACHE_DIR" ]; then
+    printf "Clean ArchLinux cache\n"
+    cache_size=$(du -sh $CACHE_DIR | cut -d'/' -f1)
+    printf "Cache size: ${cache_size}\n"
+    rm -rf $CACHE_DIR
+    printf "Cache cleaned up"
+else
+    printf "Cache empty.\n"
+fi
