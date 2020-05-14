@@ -11,7 +11,7 @@ if [ -z "$to_clean" ]; then
     printf "Nothing to clean.\n\n"
 else
     sudo pacman -Rns $to_clean
-    print "\n"
+    printf "\n"
 fi
 
 if [ -d "$CACHE_DIR" ]; then
