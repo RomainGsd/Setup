@@ -1,6 +1,9 @@
 meteo(){
 	curl "http://v2.wttr.in/$1"
 }
+mkcd(){
+	mkdir -p "$@" && cd "$@";
+}
 alias ..='cd ..'
 alias py='python'
 alias ne='emacs -nw'

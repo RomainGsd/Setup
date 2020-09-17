@@ -67,10 +67,10 @@ function epitech
 
 function install
 {
-	read -p "> Do you want to install archey ? (y/n)" choice
+	read -p "> Do you want to install neofetch ? (y/n)" choice
 	if [ "$choice" == "y" ] ; then
-	printf "Installing Archey ...\n"
-	sudo pacman -S archey3
+	printf "Installing Neofetch ...\n"
+	sudo pacman -S neofetch
 	fi
 	read -p "> Do you want to install terminator ? (y/n) " choice
 	if [ "$choice" == "y" ] ; then
