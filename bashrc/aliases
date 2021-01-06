@@ -1,9 +1,18 @@
 meteo(){
 	curl "http://v2.wttr.in/$1"
 }
-mkcd(){
-	mkdir -p "$@" && cd "$@";
+
+function mkcd {
+  last=$(eval "echo \$$#")
+  if [ ! -n "$last" ]; then
+    echo "Enter a directory name"
+  elif [ -d $last ]; then
+    echo "\`$last' already exists"
+  else
+    mkdir $@ && cd $last
+  fi
 }
+
 alias ..='cd ..'
 alias py='python'
 alias ne='emacs -nw'
@@ -19,4 +28,6 @@ alias clangpp='clang++ -fcolor-diagnostics'
 alias vpn="sudo protonvpn c --p2p"
 alias deco_vpn="sudo protonvpn d"
 alias up="sudo pacman -Syu"
-
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && (echo terminal; exit 0) || (echo error; exit 1))" "$([ $? = 0 ] && echo Task finished || echo Something went wrong!)" "$(history | sed -n "\$s/^\s*[0-9]\+\s*\(.*\)[;&|]\s*alert\$/\1/p")"'
+alias list_rtsp="nmap --open -p 554 10.25.12.1-254 -oG - | grep '/open'"
+alias list_rtsp_local="nmap --open -p 554 192.168.1.1-254 -oG - | grep '/open'"
